@@ -1,5 +1,18 @@
 def exists_word(word, instance):
-    """Aqui irá sua implementação"""
+    queued = instance.queue
+    occurrences = []
+
+    for element in queued:
+        for index in range(len(element["linhas_do_arquivo"])):
+            if word.lower() in element["linhas_do_arquivo"][index].lower():
+                occurrences.append({"linha": index + 1})
+        if len(occurrences) > 0:
+            return [{
+                "palavra": word,
+                "arquivo": element["nome_do_arquivo"],
+                "ocorrencias": occurrences
+                }]
+        return []
 
 
 def search_by_word(word, instance):
