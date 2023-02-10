@@ -15,10 +15,12 @@ mock_data = [
     },
     {
         "nome_do_arquivo": "text_file_3.txt",
-        "qtd_linhas": 10,
-        "linhas_do_arquivo": ["bla", "bla", "bla", "bla", "bla", "bla", "bla", "bla", "bla", "bla"]
+        "qtd_linhas": 8,
+        "linhas_do_arquivo":
+            ["bla", "bla", "bla", "bla", "bla", "bla", "bla", "bla"]
     },
 ]
+
 
 def test_basic_priority_queueing():
     priority_queue = PriorityQueue()
@@ -53,8 +55,8 @@ def test_basic_priority_queueing():
 
     priority_queue.enqueue(mock_data[1])
 
-    assert priority_queue.is_priority(mock_data[0]) == True
-    assert priority_queue.is_priority(mock_data[2]) == False
+    assert priority_queue.is_priority(mock_data[0]) is True
+    assert priority_queue.is_priority(mock_data[2]) is False
 
     with pytest.raises(IndexError):
         priority_queue.search(10)
